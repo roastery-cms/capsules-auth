@@ -1,8 +1,8 @@
-import { jwtVerify, SignJWT, type JWTPayload } from "jose";
 import {
-	UnableToSignPayloadException,
 	InvalidJWTException,
-} from "@caffeine/errors/application/jwt";
+	UnableToSignPayloadException,
+} from "@roastery/terroir/exceptions/application";
+import { type JWTPayload, jwtVerify, SignJWT } from "jose";
 
 export class JWT {
 	private readonly secret: Uint8Array;

@@ -1,1 +1,1 @@
-export { CaffeineAuth } from "./auth.guard";
+export { baristaAuth } from "./auth.guard";

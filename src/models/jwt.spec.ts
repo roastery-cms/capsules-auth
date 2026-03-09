@@ -1,14 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { JWT } from "./jwt";
+import { beforeEach, describe, expect, it, vi } from "bun:test";
 import {
-	UnableToSignPayloadException,
 	InvalidJWTException,
-} from "@caffeine/errors/application/jwt";
+	UnableToSignPayloadException,
+} from "@roastery/terroir/exceptions/application";
 import { SignJWT } from "jose";
+import { JWT } from "./jwt";
 
 describe("JWT Model", () => {
 	beforeEach(() => {
-		vi.resetModules();
 		vi.restoreAllMocks();
 	});
 

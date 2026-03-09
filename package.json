@@ -1,68 +1,79 @@
 {
-    "name": "@caffeine/auth",
-    "author": {
-        "name": "Alan Reis",
-        "email": "alanreisanjo@gmail.com",
-        "url": "https://hoyasumii.dev"
-    },
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "typesVersions": {
-        "*": {
-            "*": [
-                "./dist/*/index.d.ts"
-            ]
-        }
-    },
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs"
-        },
-        "./*": {
-            "types": "./dist/*/index.d.ts",
-            "import": "./dist/*/index.js",
-            "require": "./dist/*/index.cjs"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "type": "module",
-    "scripts": {
-        "build": "tsup 'src/**/index.ts' --format cjs,esm --dts --tsconfig tsconfig.build.json --clean",
-        "test:unit": "vitest run",
-        "test:coverage": "vitest run --coverage",
-        "setup": "bun run build && bun link",
-        "prepare": "husky"
-    },
-    "devDependencies": {
-        "@faker-js/faker": "^10.2.0",
-        "@types/bun": "latest",
-        "@vitest/coverage-v8": "^4.0.18",
-        "tsup": "^8.5.1",
-        "vite-tsconfig-paths": "^6.0.5",
-        "vitest": "^4.0.18",
-        "elysia": "^1.4.26",
-        "@elysiajs/bearer": "^1.4.2",
-        "@commitlint/cli": "^20.4.1",
-        "@commitlint/config-conventional": "^20.4.1",
-        "husky": "^9.1.7"
-    },
-    "peerDependencies": {
-        "typescript": "^5",
-        "elysia": "^1.4.26"
-    },
-    "dependencies": {
-        "@caffeine/constants": "link:@caffeine/constants",
-        "@caffeine/entity": "link:@caffeine/entity",
-        "@caffeine/errors": "link:@caffeine/errors",
-        "@caffeine/models": "link:@caffeine/models",
-        "@caffeine/schema": "link:@caffeine/schema",
-        "@caffeine/cache": "link:@caffeine/cache",
-        "ioredis-mock": "^8.13.1",
-        "jose": "^6.1.3"
-    }
+	"name": "@roastery-capsules/auth",
+	"description": "Authentication and session management capsule for the Roastery CMS ecosystem, featuring JWT tokens, rate-limited login, and route protection guards.",
+	"version": "0.0.1",
+	"type": "module",
+	"author": {
+		"name": "Alan Reis",
+		"email": "alanreisanjo@gmail.com",
+		"url": "https://github.com/Hoyasumii"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/roastery-cms/capsules-auth"
+	},
+	"license": "MIT",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"typesVersions": {
+		"*": {
+			"*": [
+				"./dist/*/index.d.ts"
+			]
+		}
+	},
+	"keywords": [
+		"authentication",
+		"jwt",
+		"session-management",
+		"rate-limiting",
+		"auth-guard",
+		"elysia",
+		"roastery-cms",
+		"access-token",
+		"login"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./*": {
+			"types": "./dist/*/index.d.ts",
+			"import": "./dist/*/index.js",
+			"require": "./dist/*/index.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "biome check --fix && tsup 'src/**/index.ts' --format cjs,esm --dts --tsconfig tsconfig.build.json --clean",
+		"test:unit": "bun test --env-file=.env.testing",
+		"test:coverage": "bun test --env-file=.env.testing --coverage",
+		"setup": "bun run build && bun link",
+		"prepare": "husky || true",
+		"knip": "knip"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^20.4.1",
+		"@commitlint/config-conventional": "^20.4.1",
+		"husky": "^9.1.7",
+		"knip": "^5.85.0"
+	},
+	"peerDependencies": {
+		"@types/bun": "latest",
+		"tsup": "^8.5.1",
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"jose": "^6.2.0",
+		"@roastery-adapters/cache": "^0.0.4",
+		"@roastery/barista": "^0.0.5",
+		"@roastery/beans": "^0.0.2",
+		"@roastery/seedbed": "^0.0.2",
+		"@roastery/terroir": "^0.0.9"
+	}
 }

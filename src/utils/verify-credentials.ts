@@ -1,6 +1,6 @@
+import { BadRequestException } from "@roastery/terroir/exceptions/application";
+import { Schema } from "@roastery/terroir/schema";
 import { VerifyCredentialsDTO } from "@/dtos";
-import { BadRequestException } from "@caffeine/errors/application";
-import { Schema } from "@caffeine/schema";
 
 export function verifyCredentials(
 	data: VerifyCredentialsDTO,

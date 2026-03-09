@@ -1,5 +1,5 @@
-import type { t } from "@caffeine/models";
-import { BadResponseDTO } from "@caffeine/models/dtos/api";
+import type { t } from "@roastery/terroir";
+import { BadResponseDTO } from "./bad-response.dto";
 
 export const UnauthorizedExceptionDTO = structuredClone(BadResponseDTO);
 

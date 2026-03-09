@@ -1,6 +1,5 @@
-import { t } from "@caffeine/models";
-import { PasswordDTO } from "@caffeine/models/dtos";
-import { EmailDTO } from "@caffeine/models/dtos/primitives";
+import { EmailDTO, PasswordDTO } from "@roastery/beans/collections/dtos";
+import { t } from "@roastery/terroir";
 
 export const VerifyCredentialsDTO = t.Object(
 	{
